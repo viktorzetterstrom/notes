@@ -1,0 +1,15 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "Command line note taking app",
+  "main": "index.js",
+  "bin": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viktorzetterstrom/notes.git"
+  },
+  "keywords": [],
+  "author": "Viktor Zetterström",
+  "license": "ISC",
+  "homepage": "https://github.com/viktorzetterstrom/notes#readme"
+}
