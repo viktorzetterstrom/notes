@@ -1,9 +1,9 @@
 {
   "name": "notes",
-  "version": "1.0.0",
-  "description": "Command line note taking app",
+  "version": "0.0.1",
+  "description": "Command-line note taking",
   "main": "index.js",
-  "bin": "./index.js",
+  "bin": "./src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/viktorzetterstrom/notes.git"
