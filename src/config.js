@@ -1,8 +1,13 @@
 const os = require("os");
 const path = require("path");
 
-const FILE_NAME = ".vz-notes.md";
+const fileName = ".vz-notes.md";
+const editor = {
+  command: "code",
+  name: "Visual Studio Code",
+};
 module.exports = {
-  FILE_NAME,
-  NOTES_PATH: path.resolve(os.homedir(), FILE_NAME),
+  fileName,
+  editor,
+  notesPath: path.resolve(os.homedir(), fileName),
 };

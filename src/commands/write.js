@@ -11,10 +11,10 @@ const todaysDate = () => {
 };
 
 const writeNote = (note) => {
-  fs.readFile(config.NOTES_PATH, { encoding: "utf-8" }, (error, data) => {
+  fs.readFile(config.notesPath, { encoding: "utf-8" }, (error, data) => {
     if (error && error.code === "ENOENT") {
       console.log(
-        `File not found, creating ${config.FILE_NAME} in user directory...`
+        `File not found, creating ${config.fileName} in user directory...`
       );
       data = "# Notes\n\n";
     } else if (error) {
@@ -28,7 +28,7 @@ const writeNote = (note) => {
     const newNote = `- ${todaysDate()}: ${note}`;
     const newNoteFileRows = [heading, "", newNote, ...oldNotes, ""];
 
-    fs.writeFile(config.NOTES_PATH, newNoteFileRows.join("\n"), () => {
+    fs.writeFile(config.notesPath, newNoteFileRows.join("\n"), () => {
       console.log("Note was saved");
     });
   });

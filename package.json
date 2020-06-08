@@ -4,6 +4,12 @@
   "description": "Command-line note taking",
   "main": "index.js",
   "bin": "./src/index.js",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "test": "jest --watchAll --no-cache"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/viktorzetterstrom/notes.git"
