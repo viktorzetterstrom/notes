@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const writeNote = require("./commands/write-note");
-const openNotes = require("./commands/open-notes");
-const printHelp = require("./commands/print-help");
+const writeNote = require("./commands/write");
+const openNotes = require("./commands/open");
+const printHelp = require("./commands/--help");
 
 const [command, note] = process.argv.slice(2);
 
