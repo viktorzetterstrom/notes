@@ -1,7 +1,8 @@
 const { exec } = require("child_process");
+const config = require("../config");
 
 const openNotes = () => {
-  exec("code notes.md", (error, stdout, stderr) => {
+  exec(`code ${config.NOTES_PATH}`, (error, stdout, stderr) => {
     if (error) {
       return console.log(`error: ${error.message}`);
     }

@@ -11,5 +11,9 @@
   "keywords": [],
   "author": "Viktor Zetterström",
   "license": "ISC",
-  "homepage": "https://github.com/viktorzetterstrom/notes#readme"
+  "homepage": "https://github.com/viktorzetterstrom/notes#readme",
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "jest": "^26.0.1"
+  }
 }
