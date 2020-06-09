@@ -1,14 +1,7 @@
 const fs = require("fs");
 
 const config = require("../config");
-
-const todaysDate = () => {
-  const dateObj = new Date();
-  const year = dateObj.getFullYear();
-  const month = `${dateObj.getMonth() + 1}`.padStart(2, "0");
-  const date = `${dateObj.getDate()}`.padStart(2, "0");
-  return `${year}-${month}-${date}`;
-};
+const todaysDate = require("../utils/todays-date");
 
 const writeNote = (note) => {
   fs.readFile(config.notesPath, { encoding: "utf-8" }, (error, data) => {
