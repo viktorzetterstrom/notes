@@ -1,30 +1,38 @@
-const fs = require("fs");
-
+const { readFile, writeFile } = require("fs").promises;
 const config = require("../config");
 const todaysDate = require("../utils/todays-date");
 
-const writeNote = (note) => {
-  fs.readFile(config.notesPath, { encoding: "utf-8" }, (error, data) => {
-    if (error && error.code === "ENOENT") {
+const writeNote = async (newNote) => {
+  try {
+    const notesFile = await readFile(config.notesPath, { encoding: "utf-8" });
+
+    await writeNoteToFile(newNote, notesFile);
+    console.log("Note was saved");
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      const emptyNoteFile = "# Notes\n\n";
+
+      await writeNoteToFile(newNote, emptyNoteFile);
+
       console.log(
-        `File not found, creating ${config.fileName} in user directory...`
+        `File not found, created ${config.fileName} in user directory`
       );
-      data = "# Notes\n\n";
-    } else if (error) {
-      return console.log(error);
     }
+  }
+};
 
-    const noteFileRows = data.split("\n");
-    const heading = noteFileRows[0];
-    const oldNotes = noteFileRows.slice(2, -1);
+const writeNoteToFile = async (newNote, oldNotes) => {
+  const noteFileRows = oldNotes.split("\n");
+  const heading = noteFileRows[0];
 
-    const newNote = `- ${todaysDate()}: ${note}`;
-    const newNoteFileRows = [heading, "", newNote, ...oldNotes, ""];
+  const oldNoteRows = noteFileRows.slice(2, -1);
 
-    fs.writeFile(config.notesPath, newNoteFileRows.join("\n"), () => {
-      console.log("Note was saved");
-    });
-  });
+  const newNoteRow = `- ${todaysDate()}: ${newNote}`;
+  const newNoteFileRows = [heading, "", newNoteRow, ...oldNoteRows, ""];
+
+  const newNotes = newNoteFileRows.join("\n");
+
+  await writeFile(config.notesPath, newNotes);
 };
 
 module.exports = writeNote;
