@@ -1,8 +1,8 @@
 const os = require("os");
 const path = require("path");
+const { fileName, editor } = require("./config.json");
 
-const fileName = ".vz-notes.md";
-const editor = "code";
+
 module.exports = {
   fileName,
   editor,
