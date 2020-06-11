@@ -6,7 +6,7 @@ const help = require("./commands/--help");
 const [command, ...note] = process.argv.slice(2);
 
 const commands = {
-  write: () => write(note),
+  write: () => write(note.join(" ")),
   open: () => open(),
   "--help": () => help(),
 };
