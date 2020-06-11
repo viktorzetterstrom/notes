@@ -3,7 +3,7 @@ const config = require("../config");
 
 const open = () => {
   return exec(
-    `${config.editor.command} ${config.notesPath}`,
+    `${config.editor} ${config.notesPath}`,
     (error, stdout, stderr) => {
       if (error) {
         return console.log(`error: ${error.message}`);
@@ -12,7 +12,7 @@ const open = () => {
         return console.log(`stderr: ${stderr}`);
       }
 
-      console.log(`Opening notes in ${config.editor.name}...`);
+      console.log(`Opening notes in ${config.editor}...`);
     }
   );
 };

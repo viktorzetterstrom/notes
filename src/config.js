@@ -2,10 +2,7 @@ const os = require("os");
 const path = require("path");
 
 const fileName = ".vz-notes.md";
-const editor = {
-  command: "code",
-  name: "Visual Studio Code",
-};
+const editor = "code";
 module.exports = {
   fileName,
   editor,
