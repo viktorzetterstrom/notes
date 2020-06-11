@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-const writeNote = require("./commands/write");
-const openNotes = require("./commands/open");
-const printHelp = require("./commands/--help");
+const write = require("./commands/write");
+const open = require("./commands/open");
+const help = require("./commands/--help");
 
-const [command, note] = process.argv.slice(2);
+const [command, ...note] = process.argv.slice(2);
 
 const commands = {
-  write: () => writeNote(note),
-  open: () => openNotes(),
-  "--help": () => printHelp(),
+  write: () => write(note),
+  open: () => open(),
+  "--help": () => help(),
 };
 
 if (!commands[command]) {

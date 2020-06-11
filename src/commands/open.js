@@ -1,7 +1,7 @@
 const { exec } = require("child_process");
 const config = require("../config");
 
-const openNotes = () => {
+const open = () => {
   return exec(
     `${config.editor.command} ${config.notesPath}`,
     (error, stdout, stderr) => {
@@ -17,4 +17,4 @@ const openNotes = () => {
   );
 };
 
-module.exports = openNotes;
+module.exports = open;
