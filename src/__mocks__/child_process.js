@@ -1,9 +1,9 @@
 const child_process = jest.genMockFromModule("child_process");
 
-const exec = jest.fn().mockImplementation((command) => {
-  return command;
+const spawn = jest.fn().mockImplementation(() => {
+  return { on: () => {} };
 });
 
-child_process.exec = exec;
+child_process.spawn = spawn;
 
 module.exports = child_process;

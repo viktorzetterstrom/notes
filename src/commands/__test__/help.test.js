@@ -1,4 +1,4 @@
-const help = require("../--help");
+const help = require("../help");
 
 let log = "";
 const storeLog = (input) => (log += input);

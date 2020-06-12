@@ -1,20 +1,10 @@
-const { exec } = require("child_process");
+const { spawn } = require("child_process");
 const config = require("../config");
+const { stdin } = require("process");
 
 const open = () => {
-  return exec(
-    `${config.editor} ${config.notesPath}`,
-    (error, stdout, stderr) => {
-      if (error) {
-        return console.log(`error: ${error.message}`);
-      }
-      if (stderr) {
-        return console.log(`stderr: ${stderr}`);
-      }
-
-      console.log(`Opening notes in ${config.editor}...`);
-    }
-  );
+  console.log(`Opening notes file with ${config.editor}`);
+  spawn(config.editor, [config.notesPath], { stdio: "inherit" });
 };
 
 module.exports = open;
