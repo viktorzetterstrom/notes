@@ -8,5 +8,3 @@ Currently it has the following commands:
 - open: Open notes file
 - write "note": Write note to file
 - configure: Configure the application
-
-To use this project right now you probably have to jump through some hoops, but the idea is to build it configurable with regards to file and editor.
